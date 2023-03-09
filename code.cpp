@@ -6,7 +6,7 @@
 class Solution
 {
 public:
-    int subtractProductAndSum(int n)
+    static int subtractProductAndSum(int n)
     {
 
         // pseudocode time
@@ -23,6 +23,7 @@ public:
         int result = 0;
 
         std::string nStr = std::to_string(n);
+        // std::cout << nStr<<"\n\n";
 
         // init digi arr
         std::vector<int> digiVect = {};
@@ -30,8 +31,14 @@ public:
         // pushing digits into array
         for (int16_t i = 0; i < nStr.length(); i++)
         {
-            digiVect.push_back(nStr[i]);
+            char chDig = nStr[i];
+            int digit = std::atoi(&chDig);
+            // std::cout<<int(nStr[i])<<"\n";
+            // std::cout<<digit<<"\n";
+            digiVect.push_back(digit);
         }
+            // std::cout<<"\n\n";
+
 
         // initting sum and product vars
         int sum = 0;
@@ -43,11 +50,15 @@ public:
             product *= digiVect[i];
         }
 
+        // std::cout << product<<"\n\n";
+
         // calculating sum of all digits:
         for (int16_t i = 0; i < digiVect.size(); i++)
         {
             sum += digiVect[i];
         }
+
+        // std::cout << sum<<"\n\n";
 
         // difference of prod - sum
         result = product - sum;
@@ -59,4 +70,8 @@ public:
 
 int main()
 {
+    std::cout<<"Input: n = "<<234<<"\nOutput: "<<Solution::subtractProductAndSum(234)<<"\n\n";
+    // Solution::subtractProductAndSum(234);
+    std::cout<<"Input: n = "<<4421<<"\nOutput: "<<Solution::subtractProductAndSum(4421)<<"\n\n";
+    // Solution::subtractProductAndSum(4421);
 }
