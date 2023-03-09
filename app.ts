@@ -1,5 +1,5 @@
 function subtractProductAndSum(n: number): number {
-    
+    // initting return var
     let result: number = 0;
 
     // turn n into string
@@ -10,26 +10,32 @@ function subtractProductAndSum(n: number): number {
     // subtract, save to result
     // return result
 
+    // initting array of digits
     const digiArr: Array<number> = [];
 
+    // grabbing each digit as an int, pushing them to digiArr
     for (let i = 0; i < n.toString().length; i++) {
         const element = n.toString()[i];
         digiArr.push(parseInt(element));
     }
 
+    // initting product and sum vars
     let product: number = 1;
     let sum: number = 0;
 
+    // multiplying all digits
     for (let i = 0; i < digiArr.length; i++) {
         const element = digiArr[i];
         product *= element;
     }
 
+    // summing all digits
     for (let i = 0; i < digiArr.length; i++) {
         const element = digiArr[i];
         sum += element
     }
 
+    // self explanatory
     result = product - sum;
 
     return result;
